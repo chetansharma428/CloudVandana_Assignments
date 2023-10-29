@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Survey Form." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" id="theme" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <title>Survey Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Survey Form</h1>
+        <form id="surveyForm">
+            <div class="first-row">
+                <div class="input-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" required>
+                </div>
+            </div>
+            <div class="second-row">
+                <div class="input-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                <div class="input-group">
+                    <label for="country">Country:</label>
+                    <select id="country" required>
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                        <option value="India">India</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Thailand">Thailand</option>
+                        <!-- Add more country options here -->
+                    </select>
+                </div>
+            </div>
+            <div class="third-row">
+                <div class="input-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" required>
+                </div>
+                <div class="input-group gender">
+                    <label>Gender:</label>
+                    <input type="checkbox" id="male" name="gender" value="Male"> <label for="male">Male</label>
+                    <input type="checkbox" id="female" name="gender" value="Female"> <label for="female">Female</label>
+                </div>
+            </div>
+            <div class="fourth-row">
+                <div class="input-group">
+                    <label for="profession">Profession:</label>
+                    <input type="text" id="profession" required>
+                </div>
+            </div>
+            <div class="fifth-row">
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+            </div>
+            <div class="sixth-row">
+                <div class="input-group">
+                    <label for="mobile">Mobile Number:</label>
+                    <input type="tel" id="mobile" required>
+                </div>
+            </div>
+            <div class="seventh-row">
+                <div class="buttons">
+                    <button type="button" onclick="submitForm()">Submit</button>
+                    <button type="button" onclick="resetForm()">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Survey Form Data</h2>
+            <div id="popup-data"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
