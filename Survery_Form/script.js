@@ -1,44 +1,126 @@
-const form = document.getElementById("surveyForm");
-const popup = document.getElementById("popup");
-const popupData = document.getElementById("popup-data");
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #9E9E9E;
+}
 
-function submitForm() {
-    if (form.checkValidity()) {
-        popupData.innerHTML = `
-            <p><strong>First Name:</strong> ${form.firstName.value}</p>
-            <p><strong>Last Name:</strong> ${form.lastName.value}</p>
-            <p><strong>Date of Birth:</strong> ${form.dob.value}</p>
-            <p><strong>Country:</strong> ${form.country.value}</p>
-            <p><strong>Gender:</strong> ${getCheckedGender()}</p>
-            <p><strong>Profession:</strong> ${form.profession.value}</p>
-            <p><strong>Email:</strong> ${form.email.value}</p>
-            <p><strong>Mobile Number:</strong> ${form.mobile.value}</p>
-        `;
-        popup.style.display = "block";
-        form.reset();
-    } else {
-        alert("Please fill in all required fields.");
+.container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: #F0F2F0;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #000C40, #F0F2F0);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #000C40, #F0F2F0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+}
+label{
+    color: white;
+}
+.gender{
+    text-align: center;
+}
+.first-row,
+  .second-row,
+  .third-row,
+  .fourth-row,
+  .fifth-row, .sixth-row,
+  .seventh-row {
+    margin-bottom: 4px;
+  }
+h1 {
+    text-align: center;
+    color: #FFC107;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.input-group label {
+    font-weight: bold;
+}
+
+.buttons {
+    text-align: center;
+}
+.third-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .input-group{
+        width: 50%;
+        .checkbox{
+            text-align: center;
+        }
     }
 }
-
-function resetForm() {
-    form.reset();
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px;
 }
 
-function getCheckedGender() {
-    const genderCheckboxes = form.querySelectorAll('input[type="checkbox"][name="gender"]');
-    const checkedGenders = Array.from(genderCheckboxes)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value);
-    return checkedGenders.join(", ");
+button:hover {
+    background-color: #2a77aa;
 }
 
-function closePopup() {
-    popup.style.display = "none";
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
 }
 
-window.addEventListener("click", (event) => {
-    if (event.target === popup) {
-        closePopup();
-    }
-});
+.popup-content {
+    position: relative;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ffffff;
+    background-color: red;
+    transition: 0.3s;
+}
